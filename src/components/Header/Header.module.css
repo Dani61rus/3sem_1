@@ -1,0 +1,187 @@
+/* Main page container */
+.pageContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  flex-grow: 1;
+}
+
+/* Content wrapper - controls width */
+.contentContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+/* For wide screens (> 968px) */
+@media (min-width: 968px) {
+  .contentContainer {
+    width: 80%;
+    max-width: 1400px;
+    padding: 0;
+  }
+}
+
+/* Search section */
+.searchSection {
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.searchControls {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.searchInput {
+  width: 100%;
+  max-width: 600px;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+  border-color: #9c27b0;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(156, 39, 176, 0.2);
+}
+
+.searchButton {
+  background-color: #9c27b0;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  min-width: 180px;
+  transition: all 0.3s ease;
+}
+
+.searchButton:hover {
+  background-color: #7b1fa2;
+  transform: translateY(-2px);
+}
+
+.searchButton:disabled {
+  background-color: #b39ddb;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Filters */
+.filterGroup {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.filterLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background-color: #f5f5f5;
+  transition: all 0.2s;
+}
+
+.filterLabel:hover {
+  background-color: #f3e5f5;
+}
+
+.filterInput {
+  accent-color: #9c27b0;
+}
+
+/* Movies grid */
+.moviesGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(220px, 1fr));
+  gap: 24px;
+  width: 100%;
+  padding: 2rem 0;
+  justify-items: center;
+}
+
+/* Error message */
+.errorMessage {
+  text-align: center;
+  color: #d32f2f;
+  padding: 1.5rem;
+  background-color: #ffebee;
+  border-radius: 8px;
+  margin: 1rem 0;
+  width: 100%;
+  max-width: 800px;
+}
+
+.retryButton {
+  background-color: #9c27b0;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .moviesGrid {
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .moviesGrid {
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .moviesGrid {
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    gap: 16px;
+  }
+  
+  .contentContainer {
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .moviesGrid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  
+  .filterGroup {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .filterLabel {
+    width: 100%;
+    justify-content: center;
+  }
+}

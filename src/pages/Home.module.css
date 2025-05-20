@@ -1,0 +1,172 @@
+/* Основной контейнер страницы */
+.pageContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+
+/* Центрирующий контейнер контента */
+.contentContainer {
+  width: 100%;
+  max-width: 1600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+/* Адаптивная сетка фильмов */
+.moviesGrid {
+  display: grid;
+  width: 100%;
+  gap: 4rem;
+  padding: 2rem 0;
+  grid-template-columns: repeat(5, minmax(240px, 1fr));
+  justify-content: center;
+}
+
+/* Блок поиска */
+.searchSection {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Адаптивные изменения */
+@media (max-width: 1600px) {
+  .moviesGrid {
+    gap: 4rem;
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 1250px) {
+  .moviesGrid {
+    gap: 4rem;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 1000px) {
+  .moviesGrid {
+    gap: 3rem;
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .moviesGrid {
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .pageContainer {
+    padding: 1.5rem 1rem;
+  }
+  
+  .moviesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .moviesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}
+
+@media (max-width: 360px) {
+  .moviesGrid {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+  }
+}
+
+/* Остальные стили остаются без изменений */
+.searchControls {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 1rem 2rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+  border-color: #9c27b0;
+  box-shadow: 0 0 0 4px rgba(156, 39, 176, 0.2);
+  outline: none;
+}
+
+.searchButton {
+  background-color: #9c27b0;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  min-width: 200px;
+  transition: all 0.3s ease;
+}
+
+.filterGroup {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+}
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.filterLabel.disabled:hover {
+  background: none;
+}
+.preloaderOverlay {
+  position: absolute; /* Меняем fixed на absolute */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 100;
+  pointer-events: none; /* Позволяет кликать сквозь прелоадер */
+}
+
+.preloaderContent {
+  text-align: center;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  pointer-events: auto; /* Возвращаем возможность взаимодействия */
+}
